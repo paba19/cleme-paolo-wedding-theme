@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
-    </body>
+ {{- partial "head.html" . -}}
+ <body class="wedding-invite-text">
+  {{- partial "nav.html" . -}}
+  {{- partial "landing-section.html" . -}}
+  {{- partial "who.html" . -}}
+  {{- partial "when.html" . -}}
+  {{- partial "transport.html" . -}}
+  {{- partial "rsvp-form.html" . -}}
+  {{- partial "footer" . -}}
+ </body>
 </html>
