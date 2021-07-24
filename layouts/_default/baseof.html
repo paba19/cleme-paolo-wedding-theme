@@ -2,12 +2,6 @@
 <html>
  {{- partial "head.html" . -}}
  <body class="wedding-invite-text">
-  {{- partial "nav.html" . -}}
-  {{- partial "landing-section.html" . -}}
-  {{- partial "who.html" . -}}
-  {{- partial "when.html" . -}}
-  {{- partial "transport.html" . -}}
-  {{- partial "rsvp-form.html" . -}}
-  {{- partial "footer" . -}}
+  {{- block "main" . }}{{- end }}
  </body>
 </html>
