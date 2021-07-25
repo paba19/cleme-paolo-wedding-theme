@@ -6,7 +6,7 @@ title: "Clementina e Paolo"
 theme: "cleme-paolo-wedding-theme"
 enableEmoji: True
 Params:
-  MainBanner: "Ci Sposiamo"
+  newlyweds: "Paolo & Clementina"
 #   logo: "img/pabar.png"
 #   favicon: "img/favicon.ico"
 #   ## Ugly workaround to expose site title to the param shortcode in content

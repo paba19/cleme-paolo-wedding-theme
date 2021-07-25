@@ -1,9 +1,40 @@
 {{ define "main" }}
     {{- partial "nav.html" . -}}
-    {{- partial "landing-section.html"  (dict "MainBanner" .Params.heroHeading "initialContinue" .Params.continue1)  -}}
-    {{- partial "who.html"  (dict "carouselPics" .Params.carouselPics "names" .Params.newlyweds) -}}
-    {{- partial "when.html" . -}}
-    {{- partial "transport.html" . -}}
-    {{- partial "rsvp-form.html" . -}}
+    {{ $headless := .Site.GetPage "/landing-page" }}
+
+    {{/* Sections are: 
+        0: main-greeting
+        1: who
+        2: where
+        3: transport
+        4: gifts
+        5: rsvp
+        
+        Create each md file under content/landing-page. 
+        0 should always be there
+       */}}
+
+    {{ $greeting := $headless.Resources.GetMatch "main-greeting*" }}
+    {{ $who := $headless.Resources.GetMatch "who*" }}
+    {{ $when := $headless.Resources.GetMatch "when*" }}
+    {{ $transport := $headless.Resources.GetMatch "transport*" }}
+    {{ $gifts := $headless.Resources.GetMatch "gifts*" }}
+    {{ $rsvp := $headless.Resources.GetMatch "rsvp*" }}
+    
+    {{ if $who }}
+        {{ if $when }}
+            {{ if $transport }}
+                {{ if $gifts }}
+                    {{ if $rsvp }}
+                        {{- partial "main-greeting.html"  (dict "MainBanner" $greeting.Title "scrollDownText" $greeting.Params.scrollDownText "nextSection" "who")  -}}
+                        {{- partial "who.html"  (dict "Title" $who.Title "carouselPics" $who.Params.carouselPics "names" .Site.Params.newlyweds "Content" $who.Content "scrollDownText" $who.Params.scrollDownText "nextSection" "when") -}}
+                        {{- partial "when.html" . -}}
+                        {{- partial "transport.html" . -}}
+                        {{- partial "rsvp-form.html" . -}}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
     {{- partial "footer" . -}}
 {{ end }}

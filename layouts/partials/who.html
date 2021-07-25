@@ -1,8 +1,8 @@
 <section class="pb-sections" id="who">
- <a class="continue" href="#when">
+ <a class="continue" href="#{{ .nextSection }}">
   <div>
    <p style="/*margin-bottom: -2px;*/font-size: 24px;">
-    Chi ? Dove? Quando?
+    {{ .scrollDownText }}
    </p>
    <i class="fas fa-chevron-down bounce animated infinite" style="font-size: 45px;">
    </i>
@@ -13,7 +13,7 @@
    <div class="col">
     <div>
      <h1>
-      Chi?!
+      {{ .Title }}
      </h1>
     </div>
    </div>
@@ -67,33 +67,29 @@
      <h2 class="text-right">
       {{ .names }}
      </h2>
-     <p>
-      Si sono conosciuti a Edimburgo dove hanno iniziato a frequentarsi un giorno di primavera 2018.
-      <br/>
-     </p>
-     <p class="large-screen-text">
-      E mentre gustavano il Beltane celebrando l'ascesa della regina Maggio, la primavera li riscaldava, ma i loro sguardi riscaldavano i loro cuori.
-      <br/>
-     </p>
-     <p class="large-screen-text">
-      Lí tra Beltane e San Nicola hanno celebrato la primavera con il loro primo bacio.
-      <br/>
-      Si sono conosciuti sempre meglio, piaciuti, condividendo tanto... persino una congiuntivite fino a decidere di voler stare insieme tutta la vita, e ovunque questa possa portarli vogliono vivere il loro "a lungo felici e contenti" insieme.
-      <br/>
-     </p>
+      {{ range $content_index, $content_val := split (replaceRE "<(/)?p>" "" .Content) "\n"  }}
+        {{ if (eq $content_index 0) }}
+        <p>
+        {{ else }}
+        <p class="large-screen-text">
+        {{ end }}
+        {{ $content_val }}
+        </br>
+        </p>
+      {{ end }}
     </div>
    </div>
   </div>
   <div class="row">
    <div class="col">
+    {{ range $content_index, $content_val := split (replaceRE "<(/)?p>" "" .Content) "\n"  }}
+      {{ if (gt $content_index 0) }}
     <p class="small-screen-text">
-     E mentre gustavano il Beltane celebrando l'ascesa della regina Maggio, la primavera li riscaldava, ma i loro sguardi riscaldavano i loro cuori.
-     <br/>
-     Lí tra Beltane e San Nicola hanno celebrato la primavera con il loro primo bacio.
-     <br/>
-     Si sono conosciuti sempre meglio, piaciuti, condividendo tanto... persino una congiuntivite fino a decidere di voler stare insieme tutta la vita, e ovunque questa possa portarli vogliono vivere il loro "a lungo felici e contenti" insieme.
-     <br/>
+      {{ $content_val }}
+      {{ end }}
+    </br>
     </p>
+  {{ end }}
    </div>
   </div>
  </div>
