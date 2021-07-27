@@ -1,29 +1,31 @@
-<section class="pb-sections" id="who">
+<section class="pb-sections" id="{{ (index .content 0).Params.sectionId }}">
+ {{ if .nextSection }}
  <a class="continue" href="#{{ .nextSection }}">
   <div>
    <p style="/*margin-bottom: -2px;*/font-size: 24px;">
-    {{ .scrollDownText }}
+    {{ (index .content 0).Params.scrollDownText }}
    </p>
    <i class="fas fa-chevron-down bounce animated infinite" style="font-size: 45px;">
    </i>
   </div>
  </a>
+ {{ end }}
  <div class="container container-sections container-fluid d-block" id="container-who">
   <div class="row">
    <div class="col">
     <div>
      <h1>
-      {{ .Title }}
+      {{ (index .content 0).Title }}
      </h1>
     </div>
    </div>
   </div>
   <div class="row">
-    {{ if .carouselPics }}
+    {{ if (index .content 0).Params.carouselPics }}
    <div class="col" data-aos="fade-down-right" data-aos-duration="500">
     <div class="carousel slide border rounded-0 shadow d-inline-block float-left flex-shrink-1" data-interval="false" data-ride="carousel" data-wrap="false" id="carousel-1">
      <div class="carousel-inner d-block">
-      {{ range $pic_index, $pic_val := $.carouselPics }}
+      {{ range $pic_index, $pic_val := (index .content 0).Params.carouselPics }}
         {{ if (eq $pic_index 0) }}
       <div class="carousel-item active d-block">
       {{ else }}
@@ -50,7 +52,7 @@
       </a>
      </div>
      <ol class="carousel-indicators">
-      {{ range $pic_index, $pic_val := $.carouselPics }}
+      {{ range $pic_index, $pic_val := (index .content 0).Params.carouselPics }}
         {{ if (eq $pic_index 0) }}
         <li class="active" data-slide-to="{{ $pic_index }}" data-target="#carousel-1">
       {{ else }}
@@ -65,9 +67,9 @@
    <div class="col" data-aos="fade-up-left" data-aos-duration="500">
     <div class="text-right" id="text-body">
      <h2 class="text-right">
-      {{ .names }}
+      {{ site.Params.newlyweds }}
      </h2>
-      {{ range $content_index, $content_val := split (replaceRE "<(/)?p>" "" .Content) "\n"  }}
+      {{ range $content_index, $content_val := split (replaceRE "<(/)?p>" "" (index .content 0).Content) "\n"  }}
         {{ if (eq $content_index 0) }}
         <p>
         {{ else }}
@@ -82,7 +84,7 @@
   </div>
   <div class="row">
    <div class="col">
-    {{ range $content_index, $content_val := split (replaceRE "<(/)?p>" "" .Content) "\n"  }}
+    {{ range $content_index, $content_val := split (replaceRE "<(/)?p>" "" (index .content 0).Content) "\n"  }}
       {{ if (gt $content_index 0) }}
     <p class="small-screen-text">
       {{ $content_val }}

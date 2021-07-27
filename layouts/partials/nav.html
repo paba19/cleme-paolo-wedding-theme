@@ -2,7 +2,7 @@
  <div class="container-fluid">
   <a class="navbar-brand" href="#">
    <h1>
-    {{ .Site.Title }}
+    {{ .context.Site.Title }}
    </h1>
   </a>
   <button class="navbar-toggler" data-target="#navcol-1" data-toggle="collapse">
@@ -14,15 +14,40 @@
   </button>
   <div class="collapse navbar-collapse" data-bss-tooltip="" data-toggle="tooltip" id="navcol-1">
    <ul class="navbar-nav ml-auto">
-    {{ range .Site.Menus.main.ByWeight }}
-    <li class="navitem">
-     <a class="nav-link" href="{{ .URL  | relLangURL }}" title="{{ .Name }}">
-      {{ .Name }}
-     </a>
-    </li>
+    {{ range .sections }}
+        {{ if gt (len .content) 0 }}
+            <li class="navitem">
+            <a class="nav-link" href="#{{ ( index .content 0 ).Params.sectionId }}" title="{{ ( index .content 0 ).Title }}">
+            {{ ( index .content 0 ).Title }}
+            </a>
+            </li>
+        {{ end }}
     {{ end }}
-    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Italiano&nbsp;</a>
-        <div class="dropdown-menu"><a class="dropdown-item" href="/en/index.html">English</a></div>
+
+    {{ if .context.Site.IsMultiLingual }}
+        {{ if ge (len .context.Site.Languages) 3 }}
+        <li class="nav-item dropdown">
+            <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown">{{ i18n "languageSwitcherLabel" }}</a>
+            <div class="dropdown-menu">
+            {{ range .context.Site.Languages }}
+                {{ if not (eq .Lang $.context.Site.Language.Lang) }}
+                <a class="dropdown-item" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                {{ end }}
+            {{ end }}
+            </div>
+        </li>
+        {{ else }}
+        <li class="navitem">
+        {{ range .context.Site.Languages }}
+            {{ if not (eq .Lang $.context.Site.Language.Lang) }}
+                <a class="nav-link" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+            {{ end }}
+        {{ end }}
+        </li>
+        {{ end }}
+    {{ end }}
+
+
     </li>
    </ul>
   </div>

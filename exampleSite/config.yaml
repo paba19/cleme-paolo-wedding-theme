@@ -6,7 +6,18 @@ title: "Clementina e Paolo"
 theme: "cleme-paolo-wedding-theme"
 enableEmoji: True
 Params:
+  googleMapsAPIkey: 'AIzaSyBy7yxT9h9N9r0rGclTkjXuycIqaHUH3kc'
   newlyweds: "Paolo & Clementina"
+languages:
+  en:
+    title: 'Clementina & Paolo'
+    contentDir: content/en
+    languageName: English
+    weight: 10
+  it:
+    title: 'Clementina e Paolo'
+    contentDir: content/it
+    languageName: Italiano
 #   logo: "img/pabar.png"
 #   favicon: "img/favicon.ico"
 #   ## Ugly workaround to expose site title to the param shortcode in content

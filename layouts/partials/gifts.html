@@ -1,0 +1,33 @@
+<section class="pb-sections" id="{{ (index .content 0).Params.sectionId }}">
+    <div class="container container-sections" id="container-gift">
+     <div class="row">
+      <div class="col">
+       <div>
+        <h1>
+         {{ (index .content 0).Title }}
+        </h1>
+       </div>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col" data-aos="zoom-in-up" data-aos-duration="500" id="where-column">
+       <div class="text-center">
+        <p style="text-align: left;">
+         {{ (index .content 0).Content | safe.HTML }}
+        </p>
+       </div>
+      </div>
+     </div>    
+    </div>
+    {{ if .nextSection }}
+    <a class="continue" href="#{{ .nextSection }}">
+     <div>
+      <p style="font-size: 24px;">
+        {{ (index .content 0).Params.scrollDownText }}
+      </p>
+      <i class="fas fa-chevron-down bounce animated infinite" style="font-size: 45px;">
+      </i>
+     </div>
+    </a>
+    {{ end }}
+</section>
