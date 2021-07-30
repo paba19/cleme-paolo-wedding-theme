@@ -3,19 +3,13 @@
 
 name = "Cleme Paolo Wedding"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+licenselink = "https://github.com/paba19/cleme-paolo-wedding-theme/blob/main/LICENSE"
 description = ""
-homepage = "http://example.com/"
-tags = []
-features = []
-min_version = "0.41.0"
+homepage = "https://github.com/paba19/cleme-paolo-wedding-theme"
+tags = ["onepage", "wedding"]
+features = ["onepage", "responsive"]
+min_version = "0.80.0"
 
 [author]
   name = "Paolo Barile"
   homepage = "https://pabar.me"
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
