@@ -1,0 +1,69 @@
+<div class="contact-clean container-sections pb-sections" id="{{ (index .content 0).Params.sectionId }}">
+    <form id="superForm" method="post" name="rsvpx" data-netlify="true">
+     <h2 class="text-center">
+      {{ (index .content 0).Title }}
+     </h2>
+     <p class="form-content">
+        {{ (index .content 0).Content | safe.HTML }}
+     </p>
+     <div class="form-group">
+      <div class="form-check-valid">
+      </div>
+      <input class="form-control" name="name" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.namePlaceholder }}" required="" style="display: inline-block" type="text"/>
+     </div>
+     <div class="form-group">
+      <div class="form-check-valid">
+      </div>
+      <input class="form-control" name="email" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.contactPlaceholder }}" required="" type="email"/>
+     </div>
+     <div class="form-group">
+      <div class="form-check-valid">
+      </div>
+      <input class="form-control" min="0" placeholder="{{ (index .content 0).Params.quantityPlaceholder }}" required="" type="number"/>
+     </div>
+     <div class="form-group">
+      <div class="form-check-valid">
+      </div>
+      <input class="form-control" name="intolerance" placeholder="{{ (index .content 0).Params.allergiesPlaceholder }}" required="" type="text"/>
+     </div>
+     <div class="form-group">
+      <div class="form-check-valid">
+      </div>
+      <textarea class="form-control" name="message" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.messagePlaceholder }}" required="" rows="4"></textarea>
+     </div>
+     <div class="form-group">
+      <div class="form-check-valid">
+       <i class="fas fa-bus-alt">
+       </i>
+      </div>
+      <div class="form-check form-control-check">
+       <input class="form-check-input" id="formCheck-1" type="checkbox"/>
+       <label class="form-check-label" for="formCheck-1">
+        {{ (index .content 0).Params.transportPlaceholder }}
+       </label>
+      </div>
+     </div>
+     <div class="form-group">
+      <div class="form-check-valid">
+       <i class="fas fa-bed">
+       </i>
+      </div>
+      <div class="form-check form-control-check">
+       <input class="form-check-input" id="formCheck-1" type="checkbox"/>
+       <label class="form-check-label" for="formCheck-1">
+        {{ (index .content 0).Params.lodgePlaceholder }}
+       </label>
+      </div>
+     </div>
+     
+     {{ if .site.Params.recaptcha }}
+     <div class="form-group">
+      <div class="g-recaptcha" style="display: block; margin-left: 20%" data-sitekey="{{ .site.Params.recaptcha.siteKey }}"></div></div>
+     {{ end }}
+     <div class="form-group">
+      <button class="btn btn-primary form-content" id="rsvp-button" type="submit">
+        {{ (index .content 0).Params.sendButton }}
+      </button>
+     </div>
+    </form>
+   </div>

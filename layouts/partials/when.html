@@ -1,0 +1,66 @@
+<section class="pb-sections" id="{{ (index .content 0).Params.sectionId }}">
+ <div class="container container-sections" id="container-when">
+  <div class="row">
+   <div class="col col-md-3 offset-md-4">
+    <div>
+     <h1>
+     {{ (index .content 0).Title }}
+     </h1>
+    </div>
+   </div>
+  </div>
+  <div class="row" id="where-when-row">
+   <div class="col col-md-10 offset-md-1" data-aos="flip-down" data-aos-duration="500">
+    <div class="text-center" title="Ora cerimonia e banchetto">
+     <ul class="nav nav-pills d-lg-flex justify-content-lg-center tab-selector" role="tablist" style="opacity: 1;">
+      {{ range $p_index, $p_val := .content }}
+      <li class="nav-item" role="presentation">
+       {{ if (eq $p_index 0)  }}
+       <a class="nav-link active" data-toggle="pill" href="#tab-{{ $p_index }}" role="tab">
+       {{ else }}
+       <a class="nav-link" data-toggle="pill" href="#tab-{{ $p_index }}" role="tab">
+       {{ end }}
+        <i class="fas {{ $p_val.Params.tabIcon }}">
+        </i>
+        {{ $p_val.Params.tabTitle }}
+       </a>
+      </li>
+      {{ end }}
+     </ul>
+     <div class="tab-content">
+      {{ range $p_index, $p_val := .content }}
+      {{ if (eq $p_index 0)  }}
+      <div class="tab-pane fade show active" id="tab-{{ $p_index }}" role="tabpanel">
+      {{ else }}
+      <div class="tab-pane fade" id="tab-{{ $p_index }}" role="tabpanel">
+      {{ end }}
+       <div class="row">
+        <div class="col">
+         <div class="text-right" id="text-body-1">
+          {{ .Content | safe.HTML }}
+         </div>
+        </div>
+        <div class="col">
+         <iframe allowfullscreen="" class="maps" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key={{ .Site.Params.googleMapsAPIkey }}&amp;q={{ $p_val.Params.mapsQuery }}&amp;zoom=9">
+         </iframe>
+        </div>
+       </div>
+      </div>
+      {{ end }}
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ {{ if .nextSection }}
+ <a class="continue" href="#{{ .nextSection }}">
+  <div>
+   <p style="font-size: 24px;">
+    {{ (index .content 0).Params.scrollDownText }}
+   </p>
+   <i class="fas fa-chevron-down bounce animated infinite" style="font-size: 45px;">
+   </i>
+  </div>
+ </a>
+ {{ end }}
+</section>

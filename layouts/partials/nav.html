@@ -1,0 +1,44 @@
+<nav class="navbar navbar-dark navbar-expand-md fixed-top" data-aos="fade">
+ <div class="container-fluid">
+  <a class="navbar-brand" href="#">
+   <h1>
+    {{ .context.Site.Title }}
+   </h1>
+  </a>
+  <button class="navbar-toggler" data-target="#navcol-1" data-toggle="collapse">
+   <span class="sr-only">
+    Toggle navigation
+   </span>
+   <span class="navbar-toggler-icon">
+   </span>
+  </button>
+  <div class="collapse navbar-collapse" data-bss-tooltip="" data-toggle="tooltip" id="navcol-1">
+   <ul class="navbar-nav ml-auto">
+    {{ range .sections }}
+        {{ if gt (len .content) 0 }}
+            <li class="navitem">
+            <a class="nav-link" href="#{{ ( index .content 0 ).Params.sectionId }}" title="{{ ( index .content 0 ).Title }}">
+            {{ ( index .content 0 ).Title }}
+            </a>
+            </li>
+        {{ end }}
+    {{ end }}
+    
+    {{ if .context.Site.IsMultiLingual }}
+        <li class="nav-item dropdown">
+            <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown">{{ i18n "languages" }}</a>
+            <div class="dropdown-menu">
+            {{ range .context.Site.Languages }}
+                {{ if not (eq .Lang $.context.Site.Language.Lang) }}
+                <a class="dropdown-item" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                {{ end }}
+            {{ end }}
+            </div>
+        </li>
+    {{ end }}
+
+    </li>
+   </ul>
+  </div>
+ </div>
+</nav>

@@ -1,0 +1,30 @@
+<section class="pb-sections" id="{{ (index .content 0).Params.sectionId }}">
+ <div class="container d-block container-fluid" id="container-landing" style="font-size: 22px;">
+  <div class="row" id="landing-main-row">
+   <div class="col flex-column" style="min-height: 300px;">
+    <div class="row flex-grow-1">
+     <div class="col col-md-6 offset-md-6" id="col-right">
+      <div class="text-center rubberBand animated column-block rounded" id="title-block">
+       <h1 class="rounded-top" id="main-title">
+        {{ (index .content 0).Title }}
+        {{  if (index .content 0).Params.weddingDate }}
+        <br/>
+        {{ (index .content 0).Params.weddingDate }}
+        {{ end }}
+       </h1>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <a class="continue" href="#{{ .nextSection }}">
+  <div>
+   <p style="color: var(--white);font-size: 24px;">
+    {{ (index .content 0).Params.scrollDownText }}
+   </p>
+   <i class="fas fa-chevron-down bounce animated infinite" style="font-size: 45px;color: var(--white);">
+   </i>
+  </div>
+ </a>
+</section>
