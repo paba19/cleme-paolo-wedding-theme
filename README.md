@@ -46,5 +46,5 @@ Theme produced by Paolo Barile for his wedding. Couldn't find any good onepager 
 It's veeery far from being perfect, but it served its scope :smile:
 
 ## License
-MIT Licensed.
+MIT Licensed. See the [LICENSE](LICENSE) file.
 
