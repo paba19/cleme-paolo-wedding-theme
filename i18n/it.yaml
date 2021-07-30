@@ -1,0 +1,10 @@
+languages:
+  other: "Altre lingue"
+pageCredits:
+  other: "Pagina prodotta per puro divertimento e comoditá. <br/> L'intenzione di tracciare la vostra attivitá é totlamente fuori dall scopo e alcuna informazione é trattenuta dal tuo browser."
+privacyTitle:
+  other: "Infromativa sulla Privacy"
+privacyInfo:
+  other: "Il modulo inviato sará l'unica informazione trattenuta dagli sposi, all'unico scopo di organizzare l'evento. Il solo numero di partecipanti e il nome saranno condivisi con la masseria Papaperta. Tali informazioni saranno rimosse dopo l'evento. Nessuna altra informazione é collezionata durante la tua visita."
+website:
+  other: "Sito Matrimonio {{ .Site.Params.newlyweds }}"

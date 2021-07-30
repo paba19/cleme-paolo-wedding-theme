@@ -4,15 +4,21 @@
    <div class="row">
     <div class="col-md-6 item text">
      <h3>
-      Wedding site Clementina e Paolo
+      {{ T "website" . }}
      </h3>
      <p>
-      Pagina prodotta per puro divertimento e comoditá.
-      <br/>
-      L'intenzione di tracciare la vostra attivitá é totlamente fuori dall scopo e alcuna informazione é trattenuta dal tuo browser.
+      {{ T "pageCredits" | safe.HTML }}
      </p>
     </div>
-    <div class="col item social">
+    <div class="col-md-6 item text">
+        <h3>
+        {{ T "privacyTitle" }}
+        </h3>
+        <p>
+        {{ T "privacyInfo" }}
+        </p>
+    </div>
+    <!-- <div class="col item social">
      <a href="#">
       <i class="icon ion-social-facebook">
       </i>
@@ -28,11 +34,10 @@
      <a href="#">
       <i class="icon ion-social-instagram">
       </i>
-     </a>
-    </div>
+     </a>  -->
    </div>
    <p class="copyright">
-    Clementina e Paolo © 2021
+    Clementina & Paolo © 2021
    </p>
   </div>
  </footer>

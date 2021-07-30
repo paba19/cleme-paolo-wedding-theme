@@ -1,0 +1,10 @@
+languages:
+  other: "Other languages"
+pageCredits:
+  other: "Website created for pure fun. <br/> There's no intentention at all to collect any data from your browser."
+privacyTitle:
+  other: "Privacy disclaimer"
+privacyInfo:
+  other: "The form filled here above will be the only information collected on this website, with the only aim to organise the event. Only the number of guests from your side and names will be shared with the Masseria Papaperta in order to organise the tables. These data will be deleted after the wedding. No other data is collected from this visit to the website."
+website:
+  other: "Wedding website {{ .Site.Params.newlyweds }}"

@@ -20,4 +20,11 @@
  </script>
  <script src="/js/script.min.js">
  </script>
+ {{- if .Site.Params.recaptcha -}}
+   {{ if .IsTranslated -}}
+   <script src='https://www.google.com/recaptcha/api.js?hl={{ .Language.Lang }}'></script>
+   {{- else -}}
+   <script src='https://www.google.com/recaptcha/api.js'></script>
+   {{- end -}}
+ {{- end -}}
 </head>

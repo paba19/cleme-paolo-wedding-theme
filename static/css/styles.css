@@ -6,9 +6,6 @@
   height: 100%;
 }
 
-#main-title {
-}
-
 #landing-page {
   background: url(/img/landing-bg-ws.png) no-repeat;
   padding-top: 7%;
@@ -168,9 +165,6 @@
   height: 100%;
 }
 
-#home-button {
-}
-
 .button-divs {
   padding-top: 5%;
   padding-left: calc(50% - 35px);
@@ -211,10 +205,7 @@ section {
 
 .navbar.fixed-top.scrolled {
   padding-top: 0!important;
-  max-height: 50px;
-}
-
-#container-landing {
+  padding-bottom: 0!important;
 }
 
 #container-landing {
@@ -236,15 +227,9 @@ section {
   padding-top: 3%;
 }
 
-#clock-row {
-}
-
 .navbar.navbar-dark.navbar-expand-md.fixed-top {
   box-shadow: 0px 0px 16px 11px var(--gray);
   background: rgb(26,0,26,0.7);
-}
-
-.bottom-row {
 }
 
 #container-where {
@@ -309,10 +294,6 @@ html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 }
-
-.navbar {
-}
-
 .maps {
   width: 100%;
   height: 325px;
@@ -435,7 +416,7 @@ html {
 
 @media (max-width:767px) {
   .contact-clean {
-    padding: 20px 0;
+    padding-top: 140px;
   }
 }
 
@@ -569,9 +550,6 @@ html {
 
 .form-check.form-control-check {
   display: inline-block;
-}
-
-.form-check.form-control-check {
 }
 
 

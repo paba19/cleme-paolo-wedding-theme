@@ -1,5 +1,5 @@
 <div class="contact-clean container-sections pb-sections" id="{{ (index .content 0).Params.sectionId }}">
-    <form id="superForm" method="post" name="rsvpx">
+    <form id="superForm" method="post" name="rsvpx" data-netlify="true">
      <h2 class="text-center">
       {{ (index .content 0).Title }}
      </h2>
@@ -9,27 +9,27 @@
      <div class="form-group">
       <div class="form-check-valid">
       </div>
-      <input class="form-control" name="name" onblur="blurValidation(event)" placeholder="{{ .rsvp.Params.namePlaceholder }}" required="" style="display: inline-block" type="text"/>
+      <input class="form-control" name="name" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.namePlaceholder }}" required="" style="display: inline-block" type="text"/>
      </div>
      <div class="form-group">
       <div class="form-check-valid">
       </div>
-      <input class="form-control" name="email" onblur="blurValidation(event)" placeholder="{{ .rsvp.Params.contactPlaceholder }}" required="" type="email"/>
+      <input class="form-control" name="email" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.contactPlaceholder }}" required="" type="email"/>
      </div>
      <div class="form-group">
       <div class="form-check-valid">
       </div>
-      <input class="form-control" min="0" placeholder="{{ .rsvp.Params.quantityPlaceholder }}" required="" type="number"/>
+      <input class="form-control" min="0" placeholder="{{ (index .content 0).Params.quantityPlaceholder }}" required="" type="number"/>
      </div>
      <div class="form-group">
       <div class="form-check-valid">
       </div>
-      <input class="form-control" name="intolerance" placeholder="{{ .rsvp.Params.allergiesPlaceholder }}" required="" type="text"/>
+      <input class="form-control" name="intolerance" placeholder="{{ (index .content 0).Params.allergiesPlaceholder }}" required="" type="text"/>
      </div>
      <div class="form-group">
       <div class="form-check-valid">
       </div>
-      <textarea class="form-control" name="message" onblur="blurValidation(event)" placeholder="{{ .rsvp.Params.messagePlaceholder }}" required="" rows="4"></textarea>
+      <textarea class="form-control" name="message" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.messagePlaceholder }}" required="" rows="4"></textarea>
      </div>
      <div class="form-group">
       <div class="form-check-valid">
@@ -55,6 +55,11 @@
        </label>
       </div>
      </div>
+     
+     {{ if .site.Params.recaptcha }}
+     <div class="form-group">
+      <div class="g-recaptcha" style="display: block; margin-left: 20%" data-sitekey="{{ .site.Params.recaptcha.siteKey }}"></div></div>
+     {{ end }}
      <div class="form-group">
       <button class="btn btn-primary form-content" id="rsvp-button" type="submit">
         {{ (index .content 0).Params.sendButton }}

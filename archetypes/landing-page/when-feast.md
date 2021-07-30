@@ -1,16 +1,16 @@
 ---
-mapsQuery: 'Edinburgh'
-scrollDownText: ''
+mapsQuery: 'Old oak'
 tabIcon: 'fa-glass-cheers'
-tabTitle: 'Feast'
-title: 'When and Where?'
+tabTitle: 'Reception'
+title: 'Where?'
 weight: 2
+sectionId: 'when'
 ---
 
-# A seguire in Masseria Papaperta
-Subito dopo la celebrazione resteremo in masseria per un delicato rinfresco preparato dallo staff di Papaperta.
+# Next in Magic Venue
+Right after the ceremony, the newlyweds will want to stay with you in the Venue for a pleasant lunch prepared by the Venue Staff.
 
-Il tutto accompagnato dalle note prevalentemente jazz della band NoveMuse.
+All of it will enjoy the mostly jazz background notes of the band Novemuse.
 
-Chiuderemo in bellezza a pomeriggio inoltrato scatenandoci ballando insieme!
+The day will close in the late afternoon / early evening going wild and dancing. Don't keep your dancing self back.
 

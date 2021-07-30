@@ -19,7 +19,7 @@
     {{ $gifts := $headless.Resources.Match "gifts*" }}
     {{ $rsvp := $headless.Resources.Match "rsvp*" }}
 
-    {{ $activeSections := (slice ( dict "part" "main-greeting.html" "content" $greeting) ( dict "part" "who.html" "content" $who) ( dict "part" "when.html" "content" $when) ( dict "part" "transport.html" "content" $transport) ( dict "part" "gifts.html" "content" $gifts) ( dict "part" "rsvp.html" "content" $rsvp) ) }}
+    {{ $activeSections := (slice ( dict "part" "main-greeting.html" "content" $greeting) ( dict "part" "who.html" "content" $who) ( dict "part" "when.html" "content" $when) ( dict "part" "transport.html" "content" $transport) ( dict "part" "gifts.html" "content" $gifts) ( dict "part" "rsvp.html" "content" $rsvp "site" .Site) ) }}
 
     {{/* {{ $activeSections := (slice ( dict "part" "when.html" "content" $when) ( dict "part" "transport.html" "content" $transport) ) }}*/}}
 
@@ -37,7 +37,7 @@
                 {{ end }}
             {{ end }}
             {{ if and (eq (len $nextsect) 0) (not (in $added (index $sec_val.content 0).Params.sectionId)) }}
-                {{- partial $sec_val.part  (dict "site" .Site "content" $sec_val.content) -}}
+                {{- partial $sec_val.part  (dict "site" .site "content" $sec_val.content) -}}
                 {{ $added = $added | append (index $sec_val.content 0).Params.sectionId }}
             {{ end }}
         {{ end }}

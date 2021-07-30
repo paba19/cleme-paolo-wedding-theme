@@ -1,14 +1,15 @@
 ---
-title: 'Chi si spousa?'
+title: 'Who?'
 carouselPics:
-    - alt: "Luci Nel Buio"
+    - alt: "Lights in the dark"
       src: "/img/christmas_garden_1.jpg"
-    - alt: "In festa"
+    - alt: "Out and about"
       src: "/img/manchester_1.jpg"
-    - alt: "I tramonti piú belli"
+    - alt: "The most beautiful sunsets"
       src: "/img/lisbon_2.jpg"
-scrollDownText: 'Naaa e douve?'
+scrollDownText: 'Really? Where?'
+sectionId: 'who'
 ---
-Da Ruvo e Bari a Edimburgo la Scozia fu galeotta in un giorno di primavera del 2018.
-Da allora tanto hanno condiviso, persino una congiuntivite e una pandemia.
-Ora vorrebbero condividere con voi la loro festa il 9 Ottobre.
+These 2 great guys decided to get married.
+
+Here's their story!

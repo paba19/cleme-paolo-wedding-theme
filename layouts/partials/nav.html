@@ -23,11 +23,10 @@
             </li>
         {{ end }}
     {{ end }}
-
+    
     {{ if .context.Site.IsMultiLingual }}
-        {{ if ge (len .context.Site.Languages) 3 }}
         <li class="nav-item dropdown">
-            <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown">{{ i18n "languageSwitcherLabel" }}</a>
+            <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown">{{ i18n "languages" }}</a>
             <div class="dropdown-menu">
             {{ range .context.Site.Languages }}
                 {{ if not (eq .Lang $.context.Site.Language.Lang) }}
@@ -36,17 +35,7 @@
             {{ end }}
             </div>
         </li>
-        {{ else }}
-        <li class="navitem">
-        {{ range .context.Site.Languages }}
-            {{ if not (eq .Lang $.context.Site.Language.Lang) }}
-                <a class="nav-link" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
-            {{ end }}
-        {{ end }}
-        </li>
-        {{ end }}
     {{ end }}
-
 
     </li>
    </ul>
