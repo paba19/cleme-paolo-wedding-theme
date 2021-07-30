@@ -1,0 +1,27 @@
+---
+baseURL: "https://clementinaepalosposi.com"
+DefaultContentLanguage: it
+languageCode: "it-it"
+title: "Clementina e Paolo"
+theme: "cleme-paolo-wedding-theme"
+enableEmoji: True
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+Params:
+  googleMapsAPIkey: 'ZZZZZZZZZZZZZZZZZZZZZZ'
+  newlyweds: "Paolo & Clementina"
+  recaptcha:
+    siteKey: 'XXXXXXXXXXXXXXXXXXXXXX'
+    secretKey: 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
+languages:
+  en:
+    title: 'Clementina & Paolo'
+    contentDir: content/en
+    languageName: English
+    weight: 10
+  it:
+    title: 'Clementina e Paolo'
+    contentDir: content/it
+    languageName: Italiano
