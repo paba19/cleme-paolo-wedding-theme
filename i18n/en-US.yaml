@@ -1,2 +1,0 @@
-website:
-  other: "Wedding website {{ .Site.Params.newlyweds }}"
