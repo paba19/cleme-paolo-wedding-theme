@@ -17,7 +17,7 @@
     {{ range .sections }}
         {{ if gt (len .content) 0 }}
             <li class="navitem">
-            <a class="nav-link" href="#{{ ( index .content 0 ).Params.sectionId }}" title="{{ ( index .content 0 ).Title }}">
+            <a class="nav-link" href="{{ "" | absLangURL }}#{{ ( index .content 0 ).Params.sectionId }}" title="{{ ( index .content 0 ).Title }}">
             {{ ( index .content 0 ).Title }}
             </a>
             </li>
