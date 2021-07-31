@@ -1,0 +1,60 @@
+{{ define "main" }}
+    {{ $headless := .Site.GetPage "/landing-page" }}
+    {{/* Sections are: 
+        0: main-greeting - required
+        1: who - optional
+        2: where - optional
+        3: transport - optional
+        4: gifts - optional
+        5: rsvp - optional
+        
+        Create each md file under content/landing-page. 
+        0 should always be there
+       */}}
+
+    {{ $greeting := $headless.Resources.Match "*main-greeting*" }}
+    {{ $who := $headless.Resources.Match "who*" }}
+    {{ $when := $headless.Resources.Match "when*" }}
+    {{ $transport := $headless.Resources.Match "transport*" }}
+    {{ $gifts := $headless.Resources.Match "gifts*" }}
+    {{ $rsvp := $headless.Resources.Match "rsvp*" }}
+
+    {{ $activeSections := (slice ( dict "part" "main-greeting.html" "content" $greeting) ( dict "part" "who.html" "content" $who) ( dict "part" "when.html" "content" $when) ( dict "part" "transport.html" "content" $transport) ( dict "part" "gifts.html" "content" $gifts) ( dict "part" "rsvp.html" "content" $rsvp "site" .Site) ) }}
+
+    {{- partial  "nav.html" ( dict "context" . "sections" $activeSections ) }}
+
+    <section class="pb-sections" id="SinglePage">
+        <div class="container container-sections" id="container-gift">
+         <div class="row">
+          <div class="col">
+           <div>
+            <h1>
+               {{ .Title }}
+            </h1>
+           </div>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col">
+           <div >
+            <p class="text-center">
+             {{ .Content | safe.HTML }}
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <a class="continue" href="{{ "" | absLangURL }}">
+         <div>
+          <p style="font-size: 24px;">
+           {{ T "backHome" }}
+          </p>
+          <i class="fas fa-chevron-left bounce animated" style="font-size: 45px;">
+          </i>
+         </div>
+        </a>
+    </section>
+       
+
+    {{- partial "footer" . -}}
+{{ end }}
