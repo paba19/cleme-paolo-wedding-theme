@@ -1,75 +1,69 @@
 <div class="contact-clean container-sections pb-sections" id="{{ (index .content 0).Params.sectionId }}">
-  {{ if and .site.Params.netlifyForm .site.Params.recaptcha }}
-    <form id="superForm" method="post" name="rsvpx" data-netlify="true" data-netlify-recaptcha="true">
-  {{ else if .site.Params.netlifyForm }}
-    <form id="superForm" method="post" name="rsvpx" data-netlify="true">
-  {{ else }}
-  <form id="superForm" method="post" name="rsvpx">
-  {{ end }}
-     <h2 class="text-center">
-      {{ (index .content 0).Title }}
-     </h2>
-     <p class="form-content">
-        {{ (index .content 0).Content | safe.HTML }}
-     </p>
-     <div class="form-group">
-      <div class="form-check-valid">
-      </div>
-      <input class="form-control" name="name" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.namePlaceholder }}" required="" style="display: inline-block" type="text"/>
-     </div>
-     <div class="form-group">
-      <div class="form-check-valid">
-      </div>
-      <input class="form-control" name="email" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.contactPlaceholder }}" required=""/>
-     </div>
-     <div class="form-group">
-      <div class="form-check-valid">
-      </div>
-      <input class="form-control" min="0" placeholder="{{ (index .content 0).Params.quantityPlaceholder }}" required="" type="number"/>
-     </div>
-     <div class="form-group">
-      <div class="form-check-valid">
-      </div>
-      <input class="form-control" name="intolerance" placeholder="{{ (index .content 0).Params.allergiesPlaceholder }}" type="text"/>
-     </div>
-     <div class="form-group">
-      <div class="form-check-valid">
-      </div>
-      <textarea class="form-control" name="message" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.messagePlaceholder }}" required="" rows="4"></textarea>
-     </div>
-     <div class="form-group">
-      <div class="form-check-valid">
-       <i class="fas fa-bus-alt">
-       </i>
-      </div>
-      <div class="form-check form-control-check">
-       <label class="form-check-label">
-        <input class="form-check-input" name="transport" id="formCheck-1" type="checkbox"/>
-        {{ (index .content 0).Params.transportPlaceholder }}
-       </label>
-      </div>
-     </div>
-     <div class="form-group">
-      <div class="form-check-valid">
-       <i class="fas fa-bed">
-       </i>
-      </div>
-      <div class="form-check form-control-check">
-       <label class="form-check-label">
-         <input class="form-check-input" name="lodging" id="formCheck-2" type="checkbox"/>
-        {{ (index .content 0).Params.lodgePlaceholder }}
-       </label>
-      </div>
-     </div>
-     
-     {{ if .site.Params.recaptcha }}
-     <div class="form-group">
-      <div class="g-recaptcha" style="display: block; margin-left: 20%" data-sitekey="{{ .site.Params.recaptcha.siteKey }}"></div></div>
-     {{ end }}
-     <div class="form-group">
-      <button class="btn btn-primary form-content" id="rsvp-button" type="submit">
-        {{ (index .content 0).Params.sendButton }}
-      </button>
-     </div>
-    </form>
+  <form id="superForm" method="post" name="rsvpx" {{ if .site.Params.netlifyForm }} data-netlify="true" {{ with .site.Params.recaptcha }} data-netlify-recaptcha="true" {{ end }} {{ end }} {{ with .site.GetPage "/thank-you" }} action="{{ "" | absLangURL }}thank-you" {{ end }}>
+   <h2 class="text-center">
+    {{ (index .content 0).Title }}
+   </h2>
+   <p class="form-content">
+      {{ (index .content 0).Content | safe.HTML }}
+   </p>
+   <div class="form-group">
+    <div class="form-check-valid">
+    </div>
+    <input class="form-control" name="name" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.namePlaceholder }}" required="" style="display: inline-block" type="text"/>
    </div>
+   <div class="form-group">
+    <div class="form-check-valid">
+    </div>
+    <input class="form-control" name="email" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.contactPlaceholder }}" required=""/>
+   </div>
+   <div class="form-group">
+    <div class="form-check-valid">
+    </div>
+    <input class="form-control" min="0" placeholder="{{ (index .content 0).Params.quantityPlaceholder }}" required="" type="number"/>
+   </div>
+   <div class="form-group">
+    <div class="form-check-valid">
+    </div>
+    <input class="form-control" name="intolerance" placeholder="{{ (index .content 0).Params.allergiesPlaceholder }}" type="text"/>
+   </div>
+   <div class="form-group">
+    <div class="form-check-valid">
+    </div>
+    <textarea class="form-control" name="message" onblur="blurValidation(event)" placeholder="{{ (index .content 0).Params.messagePlaceholder }}" required="" rows="4"></textarea>
+   </div>
+   <div class="form-group">
+    <div class="form-check-valid">
+     <i class="fas fa-bus-alt">
+     </i>
+    </div>
+    <div class="form-check form-control-check">
+     <label class="form-check-label">
+      <input class="form-check-input" name="transport" id="formCheck-1" type="checkbox"/>
+      {{ (index .content 0).Params.transportPlaceholder }}
+     </label>
+    </div>
+   </div>
+   <div class="form-group">
+    <div class="form-check-valid">
+     <i class="fas fa-bed">
+     </i>
+    </div>
+    <div class="form-check form-control-check">
+     <label class="form-check-label">
+       <input class="form-check-input" name="lodging" id="formCheck-2" type="checkbox"/>
+      {{ (index .content 0).Params.lodgePlaceholder }}
+     </label>
+    </div>
+   </div>
+   
+   {{ if .site.Params.recaptcha }}
+   <div class="form-group">
+    <div class="g-recaptcha" style="display: block; margin-left: 20%" data-sitekey="{{ .site.Params.recaptcha.siteKey }}"></div></div>
+   {{ end }}
+   <div class="form-group">
+    <button class="btn btn-primary form-content" id="rsvp-button" type="submit">
+      {{ (index .content 0).Params.sendButton }}
+    </button>
+   </div>
+  </form>
+ </div>
