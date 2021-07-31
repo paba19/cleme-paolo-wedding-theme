@@ -3,7 +3,7 @@ languages:
 pageCredits:
   other: "Pagina prodotta per puro divertimento e comoditá. <br/> L'intenzione di tracciare la vostra attivitá é totlamente fuori dall scopo e alcuna informazione é trattenuta dal tuo browser."
 poweredBy:
-  translation: '<a href="https://gohugo.io">Sviluppato con Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Tema <a href="https://github.com/paba19/cleme-paolo-wedding-theme">Cleme Paolo Wedding Theme</a>'
+  other: '<a href="https://gohugo.io">Sviluppato con Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Tema <a href="https://github.com/paba19/cleme-paolo-wedding-theme">Cleme Paolo Wedding Theme</a>'
 privacyTitle:
   other: "Infromativa sulla Privacy"
 privacyInfo:
