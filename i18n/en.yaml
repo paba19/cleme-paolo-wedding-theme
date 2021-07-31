@@ -2,6 +2,8 @@ languages:
   other: "Other languages"
 pageCredits:
   other: "Website created for pure fun. <br/> There's no intentention at all to collect any data from your browser."
+poweredBy:
+  translation: '<a href="https://gohugo.io">Website developed with Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Theme <a href="https://github.com/paba19/cleme-paolo-wedding-theme">Cleme Paolo Wedding Theme</a>'
 privacyTitle:
   other: "Privacy disclaimer"
 privacyInfo:
