@@ -1,5 +1,5 @@
 <div class="contact-clean container-sections pb-sections" id="{{ (index .content 0).Params.sectionId }}">
-  <form id="superForm" method="post" name="rsvpx" {{ if .site.Params.netlifyForm }} data-netlify="true" {{ with .site.Params.recaptcha }} data-netlify-recaptcha="true" {{ end }} {{ end }} {{ with .site.GetPage "/thank-you" }} action="{{ "" | absLangURL }}/thank-you" {{ end }}>
+  <form id="superForm" method="post" name="rsvpx" {{ if .site.Params.netlifyForm }} data-netlify="true" {{ with .site.Params.recaptcha }} data-netlify-recaptcha="true" {{ end }} {{ end }} {{ with .site.GetPage "/thank-you" }} action="{{ "" | relLangURL }}/thank-you" {{ end }}>
    <h2 class="text-center">
     {{ (index .content 0).Title }}
    </h2>
