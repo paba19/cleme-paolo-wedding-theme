@@ -1,7 +1,13 @@
 backHome:
   other: "Back to home page"
+contactAlert:
+  other: "Please isnert a valid email address or phone number."
 languages:
   other: "Other languages"
+messageAlert:
+  other: "Please insert a few more words, thanks!"
+nameAleert:
+  other: "Please insert your name."
 pageCredits:
   other: "Website created for pure fun."
 poweredBy:
