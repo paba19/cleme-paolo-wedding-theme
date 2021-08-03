@@ -1,13 +1,5 @@
-#jumbo {
-  text-align: center;
-  padding: 40px;
-  background: url(/img/header-bg.jpg);
-  background-size: cover;
-  height: 100%;
-}
-
 #landing-page {
-  background: url(/img/landing-bg-ws.png) no-repeat;
+  background: url({{with .Site.Params.heroBackground }}{{ . }}{{ else }}"/img/landing-bg-ws.jpg"{{ end }}) no-repeat;
   padding-top: 7%;
   background-attachment: fixed;
   background-size: cover;

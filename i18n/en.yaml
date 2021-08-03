@@ -6,7 +6,7 @@ languages:
   other: "Other languages"
 messageAlert:
   other: "Please insert a few more words, thanks!"
-nameAleert:
+nameAlert:
   other: "Please insert your name."
 pageCredits:
   other: "Website created for pure fun."

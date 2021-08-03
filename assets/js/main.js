@@ -1,3 +1,5 @@
+console.log = function() {}
+
 $(function () {
   $(document).scroll(function () {
     var $nav = $(".navbar.fixed-top");
@@ -23,7 +25,7 @@ function formInvalid(field, message, alertid, okid, wrongid) {
     wrongmark.setAttribute("id", wrongid);
     wrongmark.setAttribute("class", "fa fa-remove");
     wrongmark.setAttribute("style", "color: rgb(204,0,0)");
-    parentElement.childNodes[1].appendChild(wrongmark);
+    parentElement.childNodes[0].appendChild(wrongmark);
   }
   document.getElementById("rsvp-button").disabled = true;
 }
@@ -43,7 +45,7 @@ function formIsvalid(field, alertid, okid, wrongid) {
     okcheck.setAttribute("id", okid);
     okcheck.setAttribute("class", "fa fa-check");
     okcheck.setAttribute("style", "color: rgb(66,255,0)");
-    parentElement.childNodes[1].appendChild(okcheck);
+    parentElement.childNodes[0].appendChild(okcheck);
   }
   document.getElementById("rsvp-button").disabled = false;
 }
@@ -97,7 +99,7 @@ function IsValidPhone(number) {
  
   const regex = new RegExp('\\\+?[0-9]+');
  
-  console.log(regex.test(number))
+
   if (! regex.test(number) ) {
       return false;
   }
@@ -109,24 +111,27 @@ function IsValidPhone(number) {
 function blurValidation(event) {
   switch (event.target["name"]) {
     case "name":
+      console.log("");
       if (! isValidName(event.target.value)) {
-        formInvalid(event.target, "{{ T 'nameAleert' }}", "NameAlert", "NameOK", "NameWrong");
+        formInvalid(event.target, "{{ i18n "nameAlert" }}", "NameAlert", "NameOK", "NameWrong");
         return false;
       } else {
         formIsvalid(event.target, "NameAlert", "NameOK", "NameWrong");
       }
       break;
     case "email":
+      console.log("");
       if (! IsValidEmail(event.target.value) && ! IsValidPhone(event.target.value)) {
-        formInvalid(event.target, "{{ T 'contactAlert' }}", "EmailAlert", "EmailOK", "EmailWrong");
+        formInvalid(event.target, "{{ i18n "contactAlert" }}", "EmailAlert", "EmailOK", "EmailWrong");
         return false;
       } else {
         formIsvalid(event.target, "EmailAlert", "EmailOK", "EmailWrong");
       }
       break;
     case "message":
+      console.log("");
       if (! isValidMessage(event.target.value)) {
-        formInvalid(event.target, "{{ T 'messageAlert' }}", "MessageAlert", "MessageOK", "MessageWrong");
+        formInvalid(event.target, "{{ i18n "messageAlert" }}", "MessageAlert", "MessageOK", "MessageWrong");
         return false;
       } else {
         formIsvalid(event.target, "MessageAlert", "MessageOK", "MessageWrong");
@@ -134,3 +139,5 @@ function blurValidation(event) {
       break;
   }  
 }
+
+window.innerWidth<768&&$("[data-bss-disabled-mobile]").removeClass("animated").removeAttr("data-aos data-bss-hover-animate"),$(document).ready((function(){AOS.init(),$("[data-bss-hover-animate]").mouseenter((function(){var t=$(this);t.addClass("animated "+t.attr("data-bss-hover-animate"))})).mouseleave((function(){var t=$(this);t.removeClass("animated "+t.attr("data-bss-hover-animate"))})),$("[data-bss-tooltip]").tooltip()}));
