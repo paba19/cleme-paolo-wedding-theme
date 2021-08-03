@@ -4,27 +4,37 @@
  <title>
   {{ .Title }}
  </title>
- <link href="/css/bootstrap.min.css" rel="stylesheet"/>
- <link href="/css/google-Caveat-font.css" rel="stylesheet"/>
- <link href="/fonts/fontawesome-all.min.css" rel="stylesheet"/>
- <link href="/fonts/ionicons.min.css" rel="stylesheet"/>
- <link href="/css/styles.css" rel="stylesheet"/>
- <link href="/css/animate.min.css" rel="stylesheet"/>
- <link href="/css/aos.css" rel="stylesheet"/>
- <link href="/css/font-awesome.min.css" rel="stylesheet"/>
- <script src="/js/jquery.min.js">
- </script>
- <script src="/js/bootstrap.min.js">
- </script>
- <script src="/js/aos.js">
- </script>
- <script src="/js/script.min.js">
- </script>
+ {{ $pg := . }}
+ {{ $scripts := slice "/js/jquery.min.js"  "/js/bootstrap.min.js" "/js/aos.js" "/js/main.js" }}
+ {{ $styles := slice "/css/bootstrap.min.css" "/css/animate.min.css" "/css/aos.css" "/css/styles.css" }}
+ {{ $fontsStyles := slice "/css/google-Caveat-font.css" }}
+
+ {{ range $styles }}
+    {{ $style_template := resources.Get .  }}
+    {{ $rendered_css := $style_template | resources.ExecuteAsTemplate (printf "%s/%s" $pg.Lang . ) $pg | resources.Minify | fingerprint }}
+    <link href="{{ $rendered_css.RelPermalink }}" rel="stylesheet" integrity="{{ $rendered_css.Data.Integrity }}">
+ {{ end }}
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type='text/css' rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" type='text/css' rel="stylesheet">
+
+ {{ range $fontsStyles }}
+    {{ $style_template := resources.Get .  }}
+    {{ $rendered_css := $style_template | resources.ExecuteAsTemplate . $pg | resources.Minify | fingerprint }}
+    <link href="{{ $rendered_css.RelPermalink }}" rel="stylesheet" integrity="{{ $rendered_css.Data.Integrity }}" type='text/css' >
+{{ end }}
+
+ {{ range $scripts }}
+    {{ $script_template := resources.Get .  }}
+    {{ $rendered_js := $script_template | resources.ExecuteAsTemplate (printf "%s/%s" $pg.Lang . ) $pg | resources.Minify | fingerprint }}
+    <script src="{{ $rendered_js.RelPermalink }}" integrity="{{ $rendered_js.Data.Integrity }}"></script>
+ {{ end }}
+
  {{- if .Site.Params.recaptcha -}}
-   {{ if .IsTranslated -}}
-   <script src='https://www.google.com/recaptcha/api.js?hl={{ .Language.Lang }}' async defer></script>
-   {{- else -}}
-   <script src='https://www.google.com/recaptcha/api.js' async defer></script>
-   {{- end -}}
+  {{ if .IsTranslated -}}
+  <script src='https://www.google.com/recaptcha/api.js?hl={{ .Language.Lang }}' async defer></script>
+  {{- else -}}
+  <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+  {{- end -}}
  {{- end -}}
 </head>

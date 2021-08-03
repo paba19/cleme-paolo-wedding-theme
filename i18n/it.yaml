@@ -4,7 +4,9 @@ contactAlert:
   other: "Per favore inserisci un numero di telefono valido oppure email valida."
 languages:
   other: "Altre lingue"
-nameAleert:
+messageAlert:
+  other: "Ok la sintesi, ma cosí é un po' troppo."
+nameAlert:
   other: "Per piacere inserisci il tuo nome."
 pageCredits:
   other: "Pagina prodotta per puro divertimento e comoditá."
