@@ -8,7 +8,6 @@
 .pb-sections {
   background-size: 100%;
   background-attachment: fixed;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,12 +25,9 @@
   font-weight: bold;
 }
 
-#countdown {
-  color: white;
-  text-align: right;
-  font-size: 60px;
-  padding-bottom: 50px;
-  font-weight: bold;
+em {
+  font-style: normal;
+  color: red;
 }
 
 @media (max-width: 768px) {
@@ -49,78 +45,6 @@
 
 .rounded {
   border-radius: 1.5rem!important;
-}
-
-.col.clock-subcol {
-  max-width: 10%;
-}
-
-#days-div {
-  display: inline-block;
-}
-
-#hours-div {
-  padding-left: 20%;
-}
-
-#mins-div {
-  padding-left: 20%;
-}
-
-#secs-div {
-  padding-left: 20%;
-}
-
-#main-clock-div {
-  ackground: rgba(255, 255, 255, 0.2);
-}
-
-#clock {
-  padding-top: calc(20% - 50px);
-}
-
-@media (min-width: 768px) {
-  .col.clock-quadrants {
-    background: rgb(255,179,204, 0.4);
-    margin-left: 6.66666%;
-    max-width: 16.666667%;
-    max-height: 100px;
-  }
-}
-
-@media (max-width: 766px) {
-  .col.clock-quadrants {
-    background: rgb(255,179,204, 0.4);
-    display: inline-block;
-    box-sizing: inherit;
-    max-height: 100px;
-  }
-}
-
-.clock-digits {
-  display: block;
-  color: white;
-  text-align: center;
-  font-size: 35px;
-  padding-bottom: 50px;
-  position: relative;
-  font-weight: bold;
-  overflow: overlay;
-}
-
-#test-seconfs-block {
-  display: block;
-  padding: none;
-}
-
-.digit {
-  display: inline-block;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 50px;
-  position: relative;
-  overflow: hidden;
-  height: 60px;
 }
 
 @media (min-width:768px) {
@@ -249,7 +173,7 @@ section {
 
 @media (max-width: 767px) {
   .large-screen-text {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -413,7 +337,7 @@ html {
 }
 
 .contact-clean form {
-  max-width: 480px;
+  max-width: 1200px;
   width: 90%;
   margin: 0 auto;
   background-color: #ffffff;
@@ -433,7 +357,7 @@ html {
   margin-top: 5px;
   font-weight: bold;
   font-size: 28px;
-  margin-bottom: 36px;
+  /* margin-bottom: 36px; */
   color: inherit;
 }
 
