@@ -100,6 +100,12 @@ em {
   }
 }
 
+@media (max-width:760px) {
+  .navbar-brand h1  {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 750px) {
   .wedding-invite-text {
     font-size: 1rem;
